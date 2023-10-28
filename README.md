@@ -2,7 +2,7 @@
 
 ## License
 ```
-    unideb.tech backend
+    unideb.tech frontend
     Copyright (C) 2023  unideb.tech Authors
 
     This program is free software: you can redistribute it and/or modify
