@@ -1,4 +1,4 @@
-# create-svelte
+# unideb.tech frontend [![ci badge](https://github.com/based-zrt/unitech-frontend/actions/workflows/check.yml/badge.svg)](https://github.com/based-zrt/unitech-frontend/actions/workflows/check.yml)
 
 ## Developing
 
