@@ -21,3 +21,5 @@ vite.config.ts
 postcss.config.js
 tailwind.config.ts
 components.json
+
+.github
