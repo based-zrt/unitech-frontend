@@ -33,3 +33,9 @@ jobs:
        with:
          push: true
          tags: ghcr.io/${{ github.repository }}:latest , ghcr.io/${{ github.repository}}:${{ env.RELEASE_VERSION }}
+
+     - name: Notify Watchtower
+       uses: fjogeleit/http-request-action@v1
+       with:
+         url: ${{ secrets.WATCHTOWER_URL }}
+         bearerToken: ${{ secrets.WATCHTOWER_BEARER_TOKEN }}
