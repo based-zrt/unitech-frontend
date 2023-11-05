@@ -39,3 +39,4 @@ jobs:
        with:
          url: ${{ secrets.WATCHTOWER_URL }}
          bearerToken: ${{ secrets.WATCHTOWER_BEARER_TOKEN }}
+         preventFailureOnNoResponse: 'true'
