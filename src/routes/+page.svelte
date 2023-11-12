@@ -3,7 +3,26 @@
     import Centered from '$lib/Centered.svelte'
 
     import logo from '$lib/assets/icons/logo_color.png'
+
+    import { MetaTags } from 'svelte-meta-tags';
 </script>
+
+<MetaTags
+  title="unideb.tech"
+  description="The best image hosting service"
+  canonical="https://unideb.tech"
+  openGraph={{
+    images: [
+      {
+        url: logo,
+        width: 800,
+        height: 600,
+        alt: 'unideb.tech logo'
+      }
+    ]
+  }}
+/>
+
 
 <Centered>
     <img class="w-48 lg:w-1/4" src={logo} alt="Logo">
