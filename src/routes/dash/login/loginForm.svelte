@@ -5,29 +5,22 @@
     export let form: SuperValidated<FormSchema>;
 </script>
 
-<Form.Root {form} schema={formSchema} let:config class="flex flex-col items-center">
+<Form.Root {form} schema={formSchema} let:config>
     <Form.Field {config} name="username">
-      <Form.Item>
+      <Form.Item >
         <Form.Label class="text-xl" >Username</Form.Label>
-        <Form.Input />
+        <Form.Input class="bg-slate-950"/>
         <Form.Description></Form.Description>
         <Form.Validation />
       </Form.Item>
     </Form.Field>
-
-    <Form.Field {config} name="password">
-        <Form.Item>
-          <Form.Label class="text-xl">Password</Form.Label>
-          <Form.Input />
+    <Form.Field {config} name="password" >
+        <Form.Item class="mb-5 ">
+          <Form.Label class="text-xl" >Password</Form.Label>
+          <Form.Input class="bg-slate-950"/>
           <Form.Description></Form.Description>
           <Form.Validation />
-        </Form.Item>
+        </Form.Item>  
     </Form.Field>
-
-    <Form.Button>Login</Form.Button>
-    <Form.Button variant="link" href="/dash/register">Register</Form.Button>
-
-    
-    
-    
+    <Form.Button class="w-full">Login</Form.Button>  
   </Form.Root>
