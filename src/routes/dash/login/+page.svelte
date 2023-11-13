@@ -15,8 +15,8 @@
 </script>
 
 <Centered> 
-  <img class="w-48 lg:w-1/4 mb-10" src={logo} alt="Logo">
-  <Card.Root class="w-48 lg:w-1/4 bg-slate-900">
+  <img class="w-48 lg:w-1/8 mb-10" src={logo} alt="Logo">
+  <Card.Root class="w-100 bg-slate-900">
     <Card.Header>
       <Card.Title class="text-2xl">Sign in</Card.Title>
     </Card.Header>
