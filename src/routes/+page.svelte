@@ -20,7 +20,7 @@
         url: embed,
         width: 600,
         height: 600,
-        alt: 'unideb.tech logo'
+        alt: 'unideb.tech logo alt'
       }
     ],
     siteName: 'unideb.tech'
