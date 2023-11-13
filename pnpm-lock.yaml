@@ -35,6 +35,9 @@ devDependencies:
   eslint-plugin-svelte:
     specifier: ^2.30.0
     version: 2.34.0(eslint@8.52.0)(svelte@4.2.2)
+  formsnap:
+    specifier: ^0.4.1
+    version: 0.4.1(svelte@4.2.2)(sveltekit-superforms@1.10.1)(zod@3.22.4)
   lucide-svelte:
     specifier: ^0.291.0
     version: 0.291.0(svelte@4.2.2)
@@ -53,6 +56,9 @@ devDependencies:
   svelte-check:
     specifier: ^3.4.3
     version: 3.5.2(postcss@8.4.31)(svelte@4.2.2)
+  sveltekit-superforms:
+    specifier: ^1.10.1
+    version: 1.10.1(@sveltejs/kit@1.27.2)(svelte@4.2.2)(zod@3.22.4)
   svelte-meta-tags:
     specifier: ^3.1.0
     version: 3.1.0(svelte@4.2.2)(typescript@5.2.2)
@@ -74,6 +80,9 @@ devDependencies:
   vite:
     specifier: ^4.4.2
     version: 4.5.0
+  zod:
+    specifier: ^3.22.4
+    version: 3.22.4
 
 packages:
 
@@ -1316,6 +1325,18 @@ packages:
       tabbable: 6.2.0
     dev: true
 
+  /formsnap@0.4.1(svelte@4.2.2)(sveltekit-superforms@1.10.1)(zod@3.22.4):
+    resolution: {integrity: sha512-hUOaDKb+KoBi4PamJRnxRqIQW3msp2BKPqohoqjHUuBb+vgBrhoaz0WYEFkXG4bzVQS3JngG55m/zX5ciZTyeA==}
+    peerDependencies:
+      svelte: ^4.0.0
+      sveltekit-superforms: ^1.7.1
+      zod: ^3.22.2
+    dependencies:
+      svelte: 4.2.2
+      sveltekit-superforms: 1.10.1(@sveltejs/kit@1.27.2)(svelte@4.2.2)(zod@3.22.4)
+      zod: 3.22.4
+    dev: true
+
   /fraction.js@4.3.7:
     resolution: {integrity: sha512-ZsDfxO51wGAXREY55a7la9LScWpwv9RxIrYABrlvOFBlH/ShPnrtsXeuUIfXKKOVicNxQ+o8JTbJvjS4M89yew==}
     dev: true
@@ -2277,6 +2298,18 @@ packages:
       periscopic: 3.1.0
     dev: true
 
+  /sveltekit-superforms@1.10.1(@sveltejs/kit@1.27.2)(svelte@4.2.2)(zod@3.22.4):
+    resolution: {integrity: sha512-xNRLuncJf7UoJSr543IpFRu5si2Vv7dd8lsc6w1MAodGcIvDFn76T6jF/idftos7Vt/OOi3btFsvrJvT99n4dg==}
+    peerDependencies:
+      '@sveltejs/kit': 1.x
+      svelte: 3.x || 4.x
+      zod: 3.x
+    dependencies:
+      '@sveltejs/kit': 1.27.2(svelte@4.2.2)(vite@4.5.0)
+      svelte: 4.2.2
+      zod: 3.22.4
+    dev: true
+
   /tabbable@6.2.0:
     resolution: {integrity: sha512-Cat63mxsVJlzYvN51JmVXIgNoUokrIaT2zLclCXjRd8boZ0004U4KCs/sToJ75C6sdlByWxpYnb5Boif1VSFew==}
     dev: true
@@ -2506,4 +2539,8 @@ packages:
   /yocto-queue@0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
+    dev: true
+
+  /zod@3.22.4:
+    resolution: {integrity: sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==}
     dev: true
