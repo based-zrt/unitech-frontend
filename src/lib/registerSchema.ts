@@ -1,3 +1,5 @@
+// Login and Register Form Schema should be one file
+
 import { z } from 'zod'
 export const formSchema = z.object({
     email: z.string().email(),
@@ -6,7 +8,6 @@ export const formSchema = z.object({
     inviteToken: z.string()
 })
 export type FormSchema = typeof formSchema
-
 export type FormFields = 'username' | 'email' | 'password' | 'inviteToken'
 export const formFields: { name: FormFields; label: string; type: string }[] = [
     { name: 'username', label: 'Username', type: 'text' },
