@@ -1,11 +1,11 @@
 <script lang="ts">
     import * as Form from "$lib/components/ui/form";
-    import { formSchema, type FormSchema } from "../routes/dash/login/loginSchema";
+    import { loginSchema, type LoginSchema } from "$lib/schema";
     import type { SuperValidated } from "sveltekit-superforms";
-    export let form: SuperValidated<FormSchema>;
+    export let form: SuperValidated<LoginSchema>;
 </script>
 
-<Form.Root {form} schema={formSchema} let:config>
+<Form.Root {form} schema={loginSchema} let:config>
     <Form.Field {config} name="username">
       <Form.Item >
         <Form.Label class="text-xl" >Username</Form.Label>

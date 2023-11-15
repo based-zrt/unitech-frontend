@@ -3,9 +3,9 @@
     import * as Card from "$lib/components/ui/card";
     import { Label } from '$components/ui/label'
     import { Button } from '$components/ui/button'
-    import type { formSchema, FormSchema } from './loginSchema'
+    import type { loginSchema, LoginSchema } from '$lib/schema.ts'
     import type { SuperValidated } from 'sveltekit-superforms';
-    export let form: SuperValidated<FormSchema>;
+    export let form: SuperValidated<LoginSchema>;
 
     import LoginForm from '$lib/LoginForm.svelte';
     import Centered from '$lib/Centered.svelte'

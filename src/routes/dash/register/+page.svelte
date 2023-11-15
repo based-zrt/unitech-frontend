@@ -3,12 +3,12 @@
     import * as Card from "$lib/components/ui/card";
     import { Label } from '$components/ui/label';
     import { Button } from '$components/ui/button';
-    import type { FormSchema } from '$lib/registerSchema';
+    import type { RegisterSchema } from '$lib/schema';
     import type { SuperValidated } from 'sveltekit-superforms';  
     import RegisterForm from '$lib/RegisterForm.svelte';
     import Centered from '$lib/Centered.svelte';
     import logo from '$lib/assets/icons/logo_slate-700.png';
-    export let form: SuperValidated<FormSchema>;
+    export let form: SuperValidated<RegisterSchema>;
 </script>
 
 <Centered> 
