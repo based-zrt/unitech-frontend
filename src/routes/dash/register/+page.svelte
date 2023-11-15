@@ -5,7 +5,7 @@
     import { Button } from '$components/ui/button';
     import type { FormSchema } from '$lib/registerSchema';
     import type { SuperValidated } from 'sveltekit-superforms';  
-    import RegisterForm from './RegisterForm.svelte';
+    import RegisterForm from '$lib/RegisterForm.svelte';
     import Centered from '$lib/Centered.svelte';
     import logo from '$lib/assets/icons/logo_slate-700.png';
     export let form: SuperValidated<FormSchema>;

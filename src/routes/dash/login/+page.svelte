@@ -7,7 +7,7 @@
     import type { SuperValidated } from 'sveltekit-superforms';
     export let form: SuperValidated<FormSchema>;
 
-    import LoginForm from './loginForm.svelte';
+    import LoginForm from '$lib/LoginForm.svelte';
     import Centered from '$lib/Centered.svelte'
     import logo from '$lib/assets/icons/logo_slate-700.png'
     
