@@ -1,5 +1,5 @@
-    <!-- search bar -->
-    <div class="mt-2">
+
+    <div class="mt-2 mr-80">
         <div class="relative mb-4 flex w-full flex-wrap items-stretch">
           <input
             type="search"
@@ -26,4 +26,3 @@
           <!-- end of search icon-->
         </div>
       </div>
-    <!-- end search bar -->
