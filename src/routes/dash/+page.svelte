@@ -4,14 +4,15 @@ import Logo from '$components/ui/logo/logo.svelte'
 import Searchbar from '$components/ui/searchbar/searchbar.svelte';
 import deffaultProfile from '$lib/assets/images/deffaultProfile.png';
 import { Progress } from "$lib/components/ui/progress";
-
+import Uploadbutton from '$components/ui/uploadbutton/uploadbutton.svelte';
 
 </script>
-
+<!--TODO: Add responsivity to page.-->
 <nav class="fixed bg-slate-800 w-full flex justify-between items-center mx-auto px-8 h-20">
 <Logo />
 <Progress storage={0.8} used={500} /> <!--The storage always should be add as GB but the used always MB. -->
 <Searchbar />
+<Uploadbutton />
 <Avatar.Root>
     <Avatar.Image src={deffaultProfile} alt="@shadcn" />
     <Avatar.Fallback>CN</Avatar.Fallback>
