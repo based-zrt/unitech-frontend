@@ -5,13 +5,18 @@ import Searchbar from '$components/ui/searchbar/searchbar.svelte';
 import deffaultProfile from '$lib/assets/images/deffaultProfile.png';
 import { Progress } from "$lib/components/ui/progress";
 import Uploadbutton from '$components/ui/uploadbutton/uploadbutton.svelte';
-import Imagecontainer from '$components/ui/image-container/imagecontainer.svelte'
+import * as Dialog from "$lib/components/ui/dialog";
+import * as Image from '$components/ui/image-container';
+
 
 //Profile varriables - these are got from database.
-let imgcount = 16; 
+let imgcount = 10; 
 let profileImage; 
 let maxStorage=0.8;
 let usedStorage=500;
+
+//function loadImage(){} - Image get from database
+
 </script>
 <!--TODO: Add responsivity to page.-->
 
@@ -28,16 +33,28 @@ let usedStorage=500;
       </Avatar.Root>
     </nav>
 </header>
-
 <!--Navbar-->
 
 <!--Body-->
 <div class="pt-32 pl-10">
   <div class="grid lg:grid-cols-5 gap-2 md:grid-cols-3 sm:grid-cols-2 ml-11 lg:ml-0">
     {#each Array.from({ length: imgcount }) as _, i (i)}
-    <Imagecontainer srcImage=""/>
+    <Dialog.Root>
+      <Dialog.Trigger><Image.Imagecontainer srcImage=""/></Dialog.Trigger>
+      <Dialog.Content>
+        <Dialog.Header>
+          <Dialog.Title class="text-center pt-5 pb-5">Preview</Dialog.Title>
+          <Dialog.Description>
+            <Image.OpenedImage srcImage="" imageName="" imageSize="" imageUploadDate=""/>
+          </Dialog.Description>
+        </Dialog.Header>
+      </Dialog.Content>
+    </Dialog.Root>
+    
     {/each}
   </div>
 </div>
-
 <!--Body-->
+
+<!--Footer-->
+<!--Footer-->
