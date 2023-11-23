@@ -1,5 +1,5 @@
 
-    <div class="mt-2 mr-28 md:mr-0">
+    <div class="mt-2 lg:mr-28 md:mr-0 mr-0">
         <div class="relative mb-4 flex w-full flex-wrap items-stretch">
           <input
             type="search"

@@ -33,7 +33,7 @@ let usedStorage=500;
 
 <!--Body-->
 <div class="pt-32 pl-10">
-  <div class="grid lg:grid-cols-5 gap-2 md:grid-cols-3 sm:grid-cols-2">
+  <div class="grid lg:grid-cols-5 gap-2 md:grid-cols-3 sm:grid-cols-2 ml-11 lg:ml-0">
     {#each Array.from({ length: imgcount }) as _, i (i)}
     <Imagecontainer srcImage=""/>
     {/each}
