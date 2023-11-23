@@ -7,8 +7,8 @@ import { Progress } from "$lib/components/ui/progress";
 import Uploadbutton from '$components/ui/uploadbutton/uploadbutton.svelte';
 import Imagecontainer from '$components/ui/image-container/imagecontainer.svelte'
 
-//Profile varriables
-let imgcount = 16; // Get from backend
+//Profile varriables - these are got from database.
+let imgcount = 16; 
 let profileImage; 
 let maxStorage=0.8;
 let usedStorage=500;
@@ -33,7 +33,7 @@ let usedStorage=500;
 
 <!--Body-->
 <div class="pt-32 pl-10">
-  <div class="grid grid-cols-5 gap-2">
+  <div class="grid lg:grid-cols-5 gap-2 md:grid-cols-3 sm:grid-cols-2">
     {#each Array.from({ length: imgcount }) as _, i (i)}
     <Imagecontainer srcImage=""/>
     {/each}

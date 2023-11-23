@@ -12,7 +12,7 @@
 	export let used = 0;
 	export let storage = 1;
 </script>
-<div>
+<div class="hidden sm:hidden lg:block">
 	<ProgressPrimitive.Root
 		class={cn(
 			"relative h-4 w-56 overflow-hidden rounded-full bg-secondary border-2 border-black",
