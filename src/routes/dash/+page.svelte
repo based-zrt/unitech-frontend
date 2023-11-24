@@ -41,12 +41,12 @@ let user = {
   <div class="grid lg:grid-cols-5 gap-2 md:grid-cols-3 sm:grid-cols-2 ml-11 lg:ml-0">
     {#each Array.from({ length: user.imageCount }) as _, i (i)}
     <Dialog.Root>
-      <Dialog.Trigger><Imagecontainer bind:imageData.imageSource=""/></Dialog.Trigger>
+      <Dialog.Trigger><Imagecontainer imageData.imageSource=""/></Dialog.Trigger>
       <Dialog.Content>
         <Dialog.Header>
           <Dialog.Title class="text-center pt-5 pb-5">Preview</Dialog.Title>
           <Dialog.Description>
-            <OpenedImage bind:imageData.imageSource="" imageData.imageName="" imageData.imageSize="" imageData.imageUploadDate=""/>
+            <OpenedImage imageData.imageSource="" imageData.imageName="" imageData.imageSize="" imageData.imageUploadDate=""/>
           </Dialog.Description>
         </Dialog.Header>
       </Dialog.Content>
