@@ -8,6 +8,7 @@
     imageUploadDate: undefined,
     imageSource: undefined,
     imageLink: undefined,
+    isPublic: false
 };
 
 </script>

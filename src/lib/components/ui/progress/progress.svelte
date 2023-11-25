@@ -5,8 +5,8 @@
 	type $$Props = ProgressPrimitive.Props;
 
 	let className: $$Props["class"] = undefined;
-	export let max: $$Props["max"] = 100;
-	export let value: $$Props["value"] = undefined;
+	//export let max: $$Props["max"] = 100;
+	//export let value: $$Props["value"] = undefined;
 	export { className as class };
 
 	export let used = 0;
