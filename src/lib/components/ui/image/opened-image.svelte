@@ -5,19 +5,19 @@
     import Share from '../sharebutton/share.svelte'
     import UrlBox from '../sharebutton/url-box.svelte';
     
+
     export let imageData = {
         imageId: undefined,
         imageName: undefined,
         imageSize: undefined,
         imageUploadDate: undefined,
         imageSource: undefined,
-        imageLink: undefined,
+        imageLink: "i.unideb.tech/",
     };
     
     let isUrlBoxVisible = false;
     
     function toggleUrlBox() {
-        console.log("clicked");
         isUrlBoxVisible = !isUrlBoxVisible;
     }
     
@@ -36,11 +36,10 @@
             <span>Image upload date: {imageData.imageUploadDate}</span>
             <!--Azért nincs külön svelte komponensbe mert bugos.-->
             {#if isUrlBoxVisible}
-                <UrlBox generated=''/> <!--ITT KAPJA MEG A GENERÁLT ID-T, HA TELJES LINKET GENERÁLUNK AKKOR 'imageURL'-t változtatunk.-->
+                <UrlBox imageURL={imageData.imageLink}/> <!--ITT KAPJA MEG A GENERÁLT LINKET.-->
             {/if}
-        </div>
         <div class="flex flex-row justify-center">
-            <div class="mx-2 my-2"><Download /></div>
+            <div class="mx-2 my-2"><Download /></div> <!--TODO: Kép letöltése-->
             <div class="mx-2 my-2">
                 <button on:click={toggleUrlBox} type="button" class="text-gray-900 bg-white border-gray-300 hover:bg-blue-500 focus:outline-none font-medium rounded text-sm px-4 py-2 me-2 mb-2 inline-flex items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 30 30">
@@ -50,9 +49,8 @@
                 </button>
             </div>
         </div>
-    {/if}
         </div>
-    {:else}
+  {:else} <!--Ez az ág csak azért van hogy ha a képet nem sikerült betölteni vagy nem létezik.-->
         <!-- svelte-ignore a11y-img-redundant-alt -->
         <img class="h-fit w-fit rounded-lg shadow-xl dark:shadow-gray-800" src={baseImage} alt="Default Image">
         <div class="h-100 mt-2 p-4 border-y-2">
@@ -60,7 +58,7 @@
             <span>Size: {imageData.imageSize} <br></span>
             <span>Uploaded: {imageData.imageUploadDate} <br></span>
             {#if isUrlBoxVisible}
-                <UrlBox/>
+                <UrlBox imageURL={imageData.imageLink}/>
             {/if}
         </div>
         <div class="flex flex-row justify-center">

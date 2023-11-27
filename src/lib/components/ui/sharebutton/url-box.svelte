@@ -1,13 +1,12 @@
 <script lang="ts">
     import CopyClipboard from '../sharebutton/copyClipboard.svelte'
-    export const generated = '';
-    export const imageURL = 'i.unideb.tech/'+ generated;
+    export let imageURL =''; // TODO: need to fix the varriable export
     
 
 </script>
 
 
-<div class="w-auto border border-gray-300 p-2 my-2 cursor-text flex justify-between">
+<div class="w-auto border border-gray-500 p-2 my-2 cursor-text flex justify-between">
     <span>{imageURL}</span>
     <CopyClipboard copiedText={imageURL}/>
 </div>

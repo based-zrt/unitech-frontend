@@ -7,7 +7,7 @@
     imageSize: undefined,
     imageUploadDate: undefined,
     imageSource: undefined,
-    imageLink: undefined,
+    imageLink: '',
     isPublic: false
 };
 
