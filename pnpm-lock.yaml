@@ -56,12 +56,12 @@ devDependencies:
   svelte-check:
     specifier: ^3.4.3
     version: 3.5.2(postcss@8.4.31)(svelte@4.2.2)
-  sveltekit-superforms:
-    specifier: ^1.10.1
-    version: 1.10.1(@sveltejs/kit@1.27.2)(svelte@4.2.2)(zod@3.22.4)
   svelte-meta-tags:
     specifier: ^3.1.0
     version: 3.1.0(svelte@4.2.2)(typescript@5.2.2)
+  sveltekit-superforms:
+    specifier: ^1.10.1
+    version: 1.10.1(@sveltejs/kit@1.27.2)(svelte@4.2.2)(zod@3.22.4)
   tailwind-merge:
     specifier: ^2.0.0
     version: 2.0.0
