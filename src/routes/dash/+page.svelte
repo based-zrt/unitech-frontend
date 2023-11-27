@@ -13,6 +13,7 @@
   let user = {
     userId: undefined,
     userName: 'Jane Doe',
+    userRole: undefined,
     profileImage: undefined,
     imageCount: 10,
     maxStorageSize: 0.8,
@@ -32,7 +33,7 @@
       imageSize: '',
       imageUploadDate: '',
       imageSource: ``,
-      imageLink: undefined,
+      imageLink: 'i.unideb.tech/',
       isPublic: true
     };
   }
@@ -49,10 +50,14 @@
     <Progress storage={user.maxStorageSize} used={user.usedStorage} />
     <Searchbar />
     <Uploadbutton />
-    <Avatar.Root>
-      <Avatar.Image src={deffaultProfile} alt="@shadcn" />
-      <Avatar.Fallback>CN</Avatar.Fallback>
-    </Avatar.Root>
+    <div>
+      <span class="text-center align-middle">{user.userName}</span>
+      <Avatar.Root class="mx-auto">
+        <Avatar.Image src={deffaultProfile} alt="@shadcn" />
+        <Avatar.Fallback>CN</Avatar.Fallback>
+      </Avatar.Root>
+    </div>
+   
   </nav>
   <!-- Navbar -->
   
@@ -62,13 +67,13 @@
       {#each images as imageData (imageData.imageId)}
         <Dialog.Root>
           <Dialog.Trigger>
-            <Imagecontainer {imageData} />
+            <Imagecontainer {...imageData} />
           </Dialog.Trigger>
           <Dialog.Content>
             <Dialog.Header>
               <Dialog.Title class="text-center pt-5 pb-5">Preview</Dialog.Title>
               <Dialog.Description>
-                <OpenedImage {imageData} />
+                <OpenedImage {...imageData} />
               </Dialog.Description>
             </Dialog.Header>
           </Dialog.Content>
