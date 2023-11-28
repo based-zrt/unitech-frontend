@@ -1,25 +1,25 @@
 <script lang="ts">
-    import { MetaTags } from "svelte-meta-tags"
-    import * as Card from "$lib/components/ui/card"
+    import { MetaTags } from 'svelte-meta-tags'
+    import * as Card from '$lib/components/ui/card'
 
-    import { isError, type ViewResponse } from "$lib/types.js"
-    import Centered from "$lib/Centered.svelte"
+    import { isError, type ViewResponse } from '$lib/types.js'
+    import Centered from '$lib/Centered.svelte'
 
-    export let data;
+    export let data
 
     $: error = isError(data.view)
-    $: view = data.view as ViewResponse;
+    $: view = data.view as ViewResponse
 </script>
 
 <svelte:head>
     {#if !error && view.embed}
-    <meta name="theme-color" content={view.embedColor} />
+        <meta name="theme-color" content={view.embedColor} />
     {/if}
 </svelte:head>
 
 {#if !error && view.embed}
-    <MetaTags 
-        title={view.embedTitle} 
+    <MetaTags
+        title={view.embedTitle}
         description={view.embedDescription}
         openGraph={{
             title: view.embedTitle,
@@ -34,7 +34,7 @@
 {/if}
 
 {#if error}
-    <MetaTags 
+    <MetaTags
         openGraph={{
             url: 'https://unideb.tech',
             title: 'Image hosting',
@@ -44,12 +44,11 @@
     <Centered>
         <h1 class="text-2xl">Upload not found</h1>
     </Centered>
-
 {:else}
     <Centered>
         <Card.Root>
             <Card.Header>
-                <img src={view.upload.url} alt={view.upload.fileName}/>
+                <img src={view.upload.url} alt={view.upload.fileName} />
             </Card.Header>
             <Card.Description>
                 <div class="flex flex-row m-5">

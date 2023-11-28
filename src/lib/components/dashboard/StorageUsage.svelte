@@ -13,10 +13,8 @@
 
     function convertToString(amount: number): string {
         const mb = 1 * 1024 * 1024
-        if (amount >= mb)
-            return (Math.round((amount / 1024 * 1024) * 100) / 100).toString() + ' mb'
-        else
-            return (Math.round((amount / 1024) * 100) / 100).toString() + ' Kb'
+        if (amount >= mb) return (Math.round((amount / 1024) * 1024 * 100) / 100).toString() + ' mb'
+        else return (Math.round((amount / 1024) * 100) / 100).toString() + ' Kb'
     }
 </script>
 
