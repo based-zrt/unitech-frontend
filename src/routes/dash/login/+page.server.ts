@@ -2,7 +2,21 @@ import type { PageServerLoad, Actions } from './$types'
 import { fail } from '@sveltejs/kit'
 import { superValidate } from 'sveltekit-superforms/server'
 import { loginSchema } from '$lib/schema'
-import fetch from 'node-fetch'
+import { redirect } from '@sveltejs/kit'
+import { actionResult } from 'sveltekit-superforms/server'
+import { error } from '@sveltejs/kit'
+
+interface LoginResponse {
+    token: string
+}
+interface ResponseType {
+    message: string
+    details: any
+    error: {
+        statusCode: number
+        statusPhrase: string
+    }
+}
 
 export const load: PageServerLoad = () => {
     return {
@@ -11,42 +25,32 @@ export const load: PageServerLoad = () => {
 }
 
 export const actions: Actions = {
-    default: async (event) => {
-        const form = await superValidate(event, loginSchema)
+    default: async ({ request, cookies }) => {
+        const form = await superValidate(request, loginSchema)
         if (!form.valid) {
-            return fail(400, {
-                form
-            })
+            return actionResult('failure', { form }, 400)
         }
-        try {
-            // TODO: Adjust to backend endpoint
-            const response = await fetch('BACKEND', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json' // Adjust content type based on what your backend expects
-                    // Add any necessary headers (e.g., authorization headers)
-                },
-                body: JSON.stringify({
-                    // or body: form.data, remains to be tested
-                    username: form.data.username,
-                    password: form.data.password
-                })
+        const response = await fetch('https://api.unideb.tech/auth/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                username: form.data.username,
+                password: form.data.password
             })
-            if (!response.ok) {
-                throw new Error('Network response was NOT ok.')
-            }
+        })
+        if (response.status === 200) {
+            let token = ((await response.json()) as LoginResponse).token
+            console.log('Login successful, token: ' + token)
+            cookies.set('token', token, {})
+            throw redirect(303, '/dash/')
+        } else {
+            let resp = (await response.json()) as ResponseType
+            console.log(resp.message)
+            throw error(resp.error.statusCode, resp.message)
 
-            // You might choose to process the response from the backend here if needed
-            // For example, getting data back from the backend
-            const responseData = await response.json()
-
-            return {
-                form: responseData // Optionally, return the response from the backend to the client
-            }
-        } catch (error) {
-            return fail(500, {
-                error: error
-            })
+            // TODO: handle errors on client side
         }
     }
 }
