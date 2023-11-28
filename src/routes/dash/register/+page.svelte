@@ -2,8 +2,11 @@
     import * as Card from '$lib/components/ui/card'
     import { Label } from '$components/ui/label'
     import { Button } from '$components/ui/button'
+    import * as  Alert  from '$components/ui/alert'
     import type { RegisterSchema } from '$lib/schema'
     import type { SuperValidated } from 'sveltekit-superforms'
+    
+    
     import RegisterForm from '$lib/RegisterForm.svelte'
     import Centered from '$lib/Centered.svelte'
     import logo from '$lib/assets/icons/logo_slate-700.png'
@@ -21,7 +24,9 @@
             <Card.Title class="text-2xl">Register a New Account</Card.Title>
         </Card.Header>
         {#if data.errorMessage!==''}
-            <div>errorMessage</div>  <!--Ennek működnie kéne asszem, de idk I'm so lost -->
+        <Alert.Root>
+            <Alert.Title>{data.errorMessage}</Alert.Title>
+        </Alert.Root>  <!--Ennek működnie kéne asszem, de idk I'm so lost -->
         {/if}
         <Card.Content>
             <RegisterForm {form} />
