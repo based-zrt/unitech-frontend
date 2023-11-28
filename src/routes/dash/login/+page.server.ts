@@ -1,6 +1,6 @@
 import type { PageServerLoad, Actions } from './$types'
 import { fail } from '@sveltejs/kit'
-import { superValidate } from 'sveltekit-superforms/server'
+import { setError, superValidate } from 'sveltekit-superforms/server'
 import { loginSchema } from '$lib/schema'
 import { redirect } from '@sveltejs/kit'
 import { actionResult } from 'sveltekit-superforms/server'
@@ -48,9 +48,7 @@ export const actions: Actions = {
         } else {
             let resp = (await response.json()) as ResponseType
             console.log(resp.message)
-            throw error(resp.error.statusCode, resp.message)
-
-            // TODO: handle errors on client side
+            return setError(form, 'username', resp.message)
         }
     }
 }
