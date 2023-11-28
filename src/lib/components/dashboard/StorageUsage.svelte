@@ -1,10 +1,10 @@
 <script lang="ts">
-    import { Progress } from "$lib/components/ui/progress"
-    import { string } from "zod"
+    import { Progress } from '$lib/components/ui/progress'
+    import { string } from 'zod'
 
     export let usePercentage: number
     let classname: string
-    export {classname as class}
+    export { classname as class }
 </script>
 
 <div>
