@@ -18,7 +18,7 @@
 <!-- Navbar -->
 <nav class="fixed bg-slate-800 w-full flex justify-between items-center mx-auto px-8 h-20">
     <DashLogo />
-    <StorageUsage usedStorage={info.usedSpace} maxStorage={info.maxSpace} class="w-96" />
+    <StorageUsage usedStorage={info.usedSpace} maxStorage={info.maxSpace} class="w-96 bg-slate-900" />
     <Searchbar />
     <Uploadbutton />
     <div>
