@@ -1,5 +1,5 @@
 <script lang="ts">
-    import CopyClipboard from '../sharebutton/copyClipboard.svelte'
+    import CopyClipboard from './CopyClipboard.svelte'
     export let imageURL =''; // TODO: need to fix the varriable export
     
 

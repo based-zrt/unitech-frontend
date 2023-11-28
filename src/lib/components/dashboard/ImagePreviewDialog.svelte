@@ -2,8 +2,8 @@
     import { onMount } from 'svelte'
     import Download from '$components/dashboard/DownloadButton.svelte'
     import baseImage from '$lib/assets/images/unknownImage.jpg'
-    import Share from '../sharebutton/share.svelte'
-    import UrlBox from '../sharebutton/url-box.svelte'
+    import Share from '$lib/components/dashboard/Share.svelte'
+    import UrlBox from '$lib/components/dashboard/UrlBox.svelte'
 
     export let id: string
     export let user: string
