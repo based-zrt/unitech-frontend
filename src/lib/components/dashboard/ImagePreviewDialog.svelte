@@ -9,7 +9,7 @@
     export let user: string
     export let url: string
     export let size: number
-    export let fileName: number
+    export let fileName: string
     export let uploadDate: number
 
     let isUrlBoxVisible = false
