@@ -1,8 +1,7 @@
 <script lang="ts">
-    import Sidebar from '$components/ui/profile/sidebar.svelte'
-
+    import Sidebar from '$components/dashboard/profile/Sidebar.svelte'
 </script>
+
 <slot />
 
 <Sidebar />
-
