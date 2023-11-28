@@ -1,20 +1,17 @@
 import type { BackendRequest, BackendResponse } from './apiTypes'
 
 export async function useApi(
-    token: string,
+    token: string | null = null,
     endpoint: string,
     method: string,
-    payload: BackendRequest
+    payload: BackendRequest | null = null
 ): Promise<BackendResponse> {
     const settings: RequestInit = {
-        method: method,
-        headers: {
-            Authorization: 'Bearer ' + token
-        }
+        method: method
     }
-    if (payload !== null) {
-        settings['body'] = JSON.stringify(payload)
-    }
+    if (payload !== null) settings['body'] = JSON.stringify(payload)
+    if (token !== null) settings['headers'] = { Authorization: 'Bearer ' + token }
+
     const response = fetch('https://api.unideb.tech' + endpoint, settings)
     return (await response).json()
 }
