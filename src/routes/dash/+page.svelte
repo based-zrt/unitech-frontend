@@ -53,7 +53,7 @@
     <div>
       <span class="text-center align-middle">{user.userName}</span>
       <Avatar.Root class="mx-auto">
-        <Avatar.Image src={deffaultProfile} alt="@shadcn" />
+        <a href="/dash/settings"><Avatar.Image src={deffaultProfile} alt="@shadcn"/></a> 
         <Avatar.Fallback>CN</Avatar.Fallback>
       </Avatar.Root>
     </div>
