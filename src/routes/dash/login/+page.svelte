@@ -11,10 +11,8 @@
     import Centered from '$lib/Centered.svelte'
     import logo from '$lib/assets/icons/bordered/logo_slate-700.png'
 
-    import type { PageData } from './$types';
-    export let data: PageData;
-
-
+    import type { PageData } from './$types'
+    export let data: PageData
 </script>
 
 <Centered>
@@ -25,7 +23,7 @@
         </Card.Header>
 
         <Card.Content>
-            <LoginForm form = {data.form}/>
+            <LoginForm form={data.form} />
             <Label class="">Don't have an account yet?</Label>
             <Button class="text-slate-400" variant="link" href="/dash/register">Register</Button>
         </Card.Content>

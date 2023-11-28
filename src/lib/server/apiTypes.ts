@@ -5,6 +5,10 @@ export interface LoginRequest {
     password: string
 }
 
+export interface LoginResponse {
+    token: string
+}
+
 export interface RegisterRequest {
     username: string
     password: string
@@ -23,4 +27,4 @@ export interface ApiError {
 
 export type BackendRequest = LoginRequest | RegisterRequest | null
 
-export type BackendResponse = ProfileInfo | UploadInfo | ViewResponse
+export type BackendResponse = ProfileInfo | UploadInfo | ViewResponse | LoginResponse

@@ -5,18 +5,9 @@ import { loginSchema } from '$lib/schema'
 import { redirect } from '@sveltejs/kit'
 import { actionResult } from 'sveltekit-superforms/server'
 import { error } from '@sveltejs/kit'
-
-interface LoginResponse {
-    token: string
-}
-interface ResponseType {
-    message: string
-    details: any
-    error: {
-        statusCode: number
-        statusPhrase: string
-    }
-}
+import { useApi } from '$lib/server/api'
+import type { ApiError, LoginRequest, LoginResponse } from '$lib/server/apiTypes'
+import { isError } from '$lib/types'
 
 export const load: PageServerLoad = () => {
     return {
@@ -30,25 +21,19 @@ export const actions: Actions = {
         if (!form.valid) {
             return actionResult('failure', { form }, 400)
         }
-        const response = await fetch('https://api.unideb.tech/auth/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                username: form.data.username,
-                password: form.data.password
-            })
-        })
-        if (response.status === 200) {
-            let token = ((await response.json()) as LoginResponse).token
-            console.log('Login successful, token: ' + token)
-            cookies.set('token', token, {})
-            throw redirect(303, '/dash/')
+
+        const req: LoginRequest = {
+            username: form.data.username,
+            password: form.data.password
+        }
+        const data = await useApi(null, '/auth/login', 'POST', req)
+        if (isError(data)) {
+            const error = data as ApiError
+            return setError(form, 'username', error.message)
         } else {
-            let resp = (await response.json()) as ResponseType
-            console.log(resp.message)
-            return setError(form, 'username', resp.message)
+            const result = data as LoginResponse
+            cookies.set('token', result.token, {})
+            throw redirect(303, '/dash/')
         }
     }
 }
