@@ -2,8 +2,8 @@
     import { Button } from '$components/ui/button'
     import Centered from '$lib/Centered.svelte'
 
-    import logo from '$lib/assets/icons/logo_slate-400.png'
-    import embed from '$lib/assets/icons/logo_embed.png'
+    import logo from '$lib/assets/icons/bordered/logo_slate-400.png'
+    import embed from '$lib/assets/icons/borderless/logo_embed.png'
     import { MetaTags } from 'svelte-meta-tags'
 </script>
 

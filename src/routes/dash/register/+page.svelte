@@ -7,7 +7,7 @@
     import type { SuperValidated } from 'sveltekit-superforms'
     import RegisterForm from '$lib/RegisterForm.svelte'
     import Centered from '$lib/Centered.svelte'
-    import logo from '$lib/assets/icons/logo_slate-700.png'
+    import logo from '$lib/assets/icons/bordered/logo_slate-700.png'
     export let form: SuperValidated<RegisterSchema>
 </script>
 

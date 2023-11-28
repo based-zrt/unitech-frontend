@@ -9,7 +9,7 @@
 
     import LoginForm from '$lib/LoginForm.svelte'
     import Centered from '$lib/Centered.svelte'
-    import logo from '$lib/assets/icons/logo_slate-700.png'
+    import logo from '$lib/assets/icons/bordered/logo_slate-700.png'
 </script>
 
 <Centered>

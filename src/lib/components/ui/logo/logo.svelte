@@ -1,5 +1,5 @@
 <script>
-    import logo from '$lib/assets/icons/logo_embed.png';
+    import logo from '$lib/assets/icons/borderless/logo_embed.png';
 </script>
 <div class="inline-flex">
     <a class="_o6689fn" href="/dash"

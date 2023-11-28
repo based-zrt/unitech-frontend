@@ -6,14 +6,12 @@
     import UrlBox from '../sharebutton/url-box.svelte';
     
 
-    export let imageData = {
-        imageId: undefined,
-        imageName: undefined,
-        imageSize: undefined,
-        imageUploadDate: undefined,
-        imageSource: undefined,
-        imageLink: "i.unideb.tech/",
-    };
+    export let id: string
+    export let user: string
+    export let url: string
+    export let size: number
+    export let fileName: number
+    export let uploadDate: number
     
     let isUrlBoxVisible = false;
     
@@ -27,16 +25,16 @@
 </script>
 <!--Igen redundáns de hát ezt másképp nem tudtam :D-->
 <div class="cursor-pointer w-120 h-120 mb-10">
-    {#if imageData.imageSource}
+    {#if url}
         <!-- svelte-ignore a11y-img-redundant-alt -->
-        <img class="h-fit w-fit rounded-lg shadow-xl dark:shadow-gray-800" src={imageData.imageSource} alt="Image">
+        <img class="h-fit w-fit rounded-lg shadow-xl dark:shadow-gray-800" src={url} alt="Image">
         <div class="h-100 mt-2 p-4 border-y-2">
-            <span>Image name: {imageData.imageName}</span>
-            <span>Image size: {imageData.imageSize}</span>
-            <span>Image upload date: {imageData.imageUploadDate}</span>
+            <span>Image name: {fileName}</span>
+            <span>Image size: {`${size / 1024} kb`}</span>
+            <span>Image upload date: {uploadDate}</span>
             <!--Azért nincs külön svelte komponensbe mert bugos.-->
             {#if isUrlBoxVisible}
-                <UrlBox imageURL={imageData.imageLink}/> <!--ITT KAPJA MEG A GENERÁLT LINKET.-->
+                <UrlBox imageURL={url}/> <!--ITT KAPJA MEG A GENERÁLT LINKET.-->
             {/if}
         <div class="flex flex-row justify-center">
             <div class="mx-2 my-2"><Download /></div> <!--TODO: Kép letöltése-->
@@ -54,11 +52,11 @@
         <!-- svelte-ignore a11y-img-redundant-alt -->
         <img class="h-fit w-fit rounded-lg shadow-xl dark:shadow-gray-800" src={baseImage} alt="Default Image">
         <div class="h-100 mt-2 p-4 border-y-2">
-            <span>Name: {imageData.imageName} <br></span>
-            <span>Size: {imageData.imageSize} <br></span>
-            <span>Uploaded: {imageData.imageUploadDate} <br></span>
+            <span>Name: {fileName} <br></span>
+            <span>Size: {`${size / 1024} kb`} <br></span>
+            <span>Uploaded: {uploadDate} <br></span>
             {#if isUrlBoxVisible}
-                <UrlBox imageURL={imageData.imageLink}/>
+                <UrlBox imageURL={url}/>
             {/if}
         </div>
         <div class="flex flex-row justify-center">
