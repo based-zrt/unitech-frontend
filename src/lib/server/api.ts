@@ -6,7 +6,7 @@ export async function useApi(
     method: string,
     payload: BackendRequest
 ): Promise<BackendResponse> {
-    let settings = {
+    const settings: RequestInit = {
         method: method,
         headers: {
             Authorization: 'Bearer ' + token

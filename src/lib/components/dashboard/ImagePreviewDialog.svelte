@@ -1,6 +1,6 @@
 <script lang="ts">
     import { onMount } from 'svelte';
-    import Download from '$components/downloadbutton/download.svelte'
+    import Download from '$components/dashboard/DownloadButton.svelte'
     import baseImage from '$lib/assets/images/unknownImage.jpg';
     import Share from '../sharebutton/share.svelte'
     import UrlBox from '../sharebutton/url-box.svelte';

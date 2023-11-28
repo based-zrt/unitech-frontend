@@ -1,33 +1,31 @@
 <script lang="ts">
   import * as Avatar from '$components/ui/avatar';
-  import Logo from '$components/ui/logo/logo.svelte'
-  import Searchbar from '$components/ui/searchbar/searchbar.svelte';
-  import deffaultProfile from '$lib/assets/images/deffaultProfile.png';
-  import { Progress } from "$lib/components/ui/progress";
-  import Uploadbutton from '$components/ui/uploadbutton/uploadbutton.svelte';
   import * as Dialog from "$lib/components/ui/dialog";
-  import Imagecontainer from '$components/ui/image/imagecontainer.svelte';
-  import OpenedImage from '$components/ui/image/opened-image.svelte';
   import { onMount } from 'svelte'
+
+  import defaultProfile from '$lib/assets/images/deffaultProfile.png'
+  import ImageContainer from '$components/dashboard/ImageContainer.svelte'
+  import ImagePreviewDialog from '$components/dashboard/ImagePreviewDialog.svelte'
+  import Uploadbutton from '$components/dashboard/UploadButton.svelte'
+  import DashLogo from '$components/dashboard/DashLogo.svelte'
+  import Searchbar from '$components/dashboard/Searchbar.svelte'
+  import StorageUsage from '$components/dashboard/StorageUsage.svelte'
   
   export let data;
   $: info = data.profileData
-
-  onMount(() => {
-    console.log('geci')
-  })
+  $: usePercentage = Math.floor(info.usedSpace / (info.maxSpace / 100))
   </script>
   
   <!-- Navbar -->
   <nav class="fixed bg-slate-800 w-full flex justify-between items-center mx-auto px-8 h-20">
-    <Logo />
-    <!-- <Progress storage={0} used={1} /> -->
+    <DashLogo />
+    <StorageUsage {usePercentage} class="w-96" />
     <Searchbar />
     <Uploadbutton />
     <div>
       <span class="text-center align-middle">{info.username}</span>
       <Avatar.Root class="mx-auto">
-        <Avatar.Image src={deffaultProfile} alt="@shadcn" />
+        <Avatar.Image src={defaultProfile} alt="@shadcn" />
         <Avatar.Fallback>CN</Avatar.Fallback>
       </Avatar.Root>
     </div>
@@ -41,13 +39,13 @@
       {#each info.uploads as image (image.id)}
         <Dialog.Root>
           <Dialog.Trigger>
-            <Imagecontainer {...image} />
+            <ImageContainer {...image} />
           </Dialog.Trigger>
           <Dialog.Content>
             <Dialog.Header>
               <Dialog.Title class="text-center pt-5 pb-5">Preview</Dialog.Title>
               <Dialog.Description>
-                <OpenedImage {...image} />
+                <ImagePreviewDialog {...image} />
               </Dialog.Description>
             </Dialog.Header>
           </Dialog.Content>

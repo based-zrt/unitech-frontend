@@ -8,7 +8,6 @@ export const load: PageServerLoad = async ({ cookies }) => {
     if (token == undefined) goto('/dash/login')
 
     const profileData = (await useApi(token as string, '/profile/info', 'GET', null)) as ProfileInfo
-    console.log(profileData)
     return {
         profileData
     }
