@@ -1,4 +1,4 @@
-import type { ProfileInfo, UploadInfo } from '$lib/types'
+import type { ProfileInfo, UploadInfo, ViewResponse } from '$lib/types'
 
 export interface LoginRequest {
     username: string
@@ -12,6 +12,15 @@ export interface RegisterRequest {
     inviteKey: string
 }
 
+export interface ApiError {
+    message: string
+    details: unknown
+    error: {
+        statusCode: number
+        statusPhrase: string
+    }
+}
+
 export type BackendRequest = LoginRequest | RegisterRequest | null
 
-export type BackendResponse = ProfileInfo | UploadInfo
+export type BackendResponse = ProfileInfo | UploadInfo | ViewResponse

@@ -1,11 +1,11 @@
-import type { BackendRequest, BackendResponse } from './apiTypes'
+import type { ApiError, BackendRequest, BackendResponse } from './apiTypes'
 
 export async function useApi(
     token: string | null = null,
     endpoint: string,
     method: string,
     payload: BackendRequest | null = null
-): Promise<BackendResponse> {
+): Promise<BackendResponse | ApiError> {
     const settings: RequestInit = {
         method: method
     }

@@ -16,6 +16,19 @@ export interface UploadInfo {
     user: string
     url: string
     size: number
-    fileName: number
+    fileName: string
     uploadDate: number
+}
+
+export interface ViewResponse {
+    upload: UploadInfo
+    embed: boolean
+    embedTitle: string | undefined
+    embedDescription: string | undefined
+    embedColor: string | undefined
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function isError(response: any): boolean {
+    return 'message' in response && 'details' in response && 'error' in response
 }
