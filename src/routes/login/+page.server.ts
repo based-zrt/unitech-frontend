@@ -33,8 +33,7 @@ export const actions: Actions = {
             return setError(form, 'username', error.message)
         } else {
             const result = data as LoginResponse
-            cookies.set('token', result.token, {})
-            await fetch(`https://api.unideb.tech/cookie?token=${result.token}`)
+            cookies.set('token', result.token, { httpOnly: false })
             throw redirect(303, '/dash')
         }
     }

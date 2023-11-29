@@ -11,6 +11,13 @@
 
     export let data: PageData
     $: info = data.profileData
+
+    function getToken() {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`token=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+        return ''
+    }
 </script>
 
 <nav class="fixed bg-slate-800 w-full flex justify-between items-center mx-auto px-8 h-20">
@@ -18,7 +25,7 @@
     <StorageUsage usedStorage={info.usedSpace} maxStorage={info.maxSpace} class="w-96 bg-slate-900" />
     <Searchbar />
     <Uploadbutton />
-    <a href="http://api.unideb.tech/profile/sharexConfig" target="_blank">
+    <a href={`http://api.unideb.tech/profile/sharexConfig?token=${getToken()}`} target="_blank">
         <Button>
             ShareX
         </Button>
