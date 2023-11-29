@@ -8,7 +8,7 @@
     export let rawUrl: string
     export let size: number
     export let fileName: string
-    export let uploadDate: number
+    export let uploadDate: string
 
     $: imageStyle = `background-image: url(${rawUrl});`
 </script>

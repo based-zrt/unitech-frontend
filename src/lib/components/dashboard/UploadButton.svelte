@@ -1,12 +1,26 @@
-<div class="hidden lg:flex h-screen items-center justify-center bg-grey-lighter">
-    <label
-        class="w-40 p-3 flex flex-col items-center px-4 bg-slate-500 text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:bg-sky-700"
-    >
-        <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-            <path
-                d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z"
-            />
-        </svg>
-        <input type="file" class="hidden" />
-    </label>
-</div>
+<script lang="ts">
+    import { Button } from "$components/ui/button"
+    import * as Dialog from "$lib/components/ui/dialog";
+</script>
+  
+<Dialog.Root>
+    <Dialog.Trigger>
+        <Button>
+            Upload
+        </Button>
+    </Dialog.Trigger>
+    <Dialog.Content>
+      <Dialog.Header>
+        <Dialog.Title>Upload</Dialog.Title>
+        <form method="POST" action="api.unideb.tech/upload/internal">
+            <label>
+                <input
+                type="file"    
+                name="image"
+                />
+            </label>
+            <button class="bg-primary text-black p-3 rounded-lg" type="submit">Upload</button>
+        </form>
+      </Dialog.Header>
+    </Dialog.Content>
+</Dialog.Root>

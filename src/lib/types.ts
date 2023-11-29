@@ -18,7 +18,7 @@ export interface UploadInfo {
     rawUrl: string
     size: number
     fileName: string
-    uploadDate: number
+    uploadDate: string
 }
 
 export interface ViewResponse {
