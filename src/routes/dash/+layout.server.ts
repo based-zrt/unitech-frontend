@@ -1,9 +1,9 @@
 import { useApi } from '$lib/server/api'
 import { isError, type ProfileInfo } from '$lib/types'
 import { redirect } from '@sveltejs/kit'
-import type { PageServerLoad } from './$types'
+import type { LayoutServerLoad } from './$types'
 
-export const load: PageServerLoad = async ({ cookies }) => {
+export const load: LayoutServerLoad = async ({ cookies }) => {
     const token = cookies.get('token')
     if (token === undefined) throw redirect(307, '/login')
 
