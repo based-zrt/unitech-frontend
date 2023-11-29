@@ -11,7 +11,7 @@
     export let rawUrl: string
     export let size: number
     export let fileName: string
-    export let uploadDate: number
+    export let uploadDate: string
 
     let isUrlBoxVisible = false
 
@@ -28,17 +28,28 @@
 <div class="cursor-pointer w-120 h-120 mb-10">
     {#if url}
         <!-- svelte-ignore a11y-img-redundant-alt -->
-        <img class="h-fit w-fit rounded-lg shadow-xl dark:shadow-gray-800" src={rawUrl} alt="Image" />
+        <div class="h-fit w-full flex justify-center">
+            <img class="rounded-lg shadow-xl dark:shadow-gray-800" src={rawUrl} alt="Image" />
+        </div>
         <div class="h-100 mt-2 p-4 border-y-2">
-            <span>Image name: {fileName}</span>
-            <span>Image size: {`${size / 1024} kb`}</span>
-            <span>Image upload date: {uploadDate}</span>
+            <div class="flex flex-row justify-center">
+                <div class="flex flex-col text-right m-2">
+                    <p>File:</p>
+                    <p>Size:</p>
+                    <p>Upload date:</p>
+                </div>
+                <div class="flex flex-col text-left mt-2">
+                    <p>{fileName}</p>
+                    <p>{Math.ceil(size / 1024)} Kb</p>
+                    <p>{uploadDate.slice(0, -8).replace('T', ' ')}</p>
+                </div>
+            </div>
             <!--Azért nincs külön svelte komponensbe mert bugos.-->
             {#if isUrlBoxVisible}
                 <UrlBox imageURL={url} /> <!--ITT KAPJA MEG A GENERÁLT LINKET.-->
             {/if}
             <div class="flex flex-row justify-center">
-                <div class="mx-2 my-2"><Download /></div>
+                <div class="mx-2 my-2"><Download downloadUrl={rawUrl} /></div>
                 <!--TODO: Kép letöltése-->
                 <div class="mx-2 my-2">
                     <button

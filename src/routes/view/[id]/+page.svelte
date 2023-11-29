@@ -26,7 +26,7 @@
             description: view.embedDescription,
             images: [
                 {
-                    url: view.upload.url
+                    url: view.upload.rawUrl
                 }
             ]
         }}
