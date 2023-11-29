@@ -1,15 +1,16 @@
 import type { PageServerLoad, Actions } from './$types'
-import { fail } from '@sveltejs/kit'
-import { setError, superValidate } from 'sveltekit-superforms/server'
-import { loginSchema } from '$lib/schema'
+import { setError, superValidate, actionResult } from 'sveltekit-superforms/server'
 import { redirect } from '@sveltejs/kit'
-import { actionResult } from 'sveltekit-superforms/server'
-import { error } from '@sveltejs/kit'
-import { useApi } from '$lib/server/api'
-import type { ApiError, LoginRequest, LoginResponse } from '$lib/server/apiTypes'
 import { isError } from '$lib/types'
+import { loginSchema } from '$lib/schema'
+import type { ApiError, LoginRequest, LoginResponse } from '$lib/server/apiTypes'
+import { useApi } from '$lib/server/api'
 
-export const load: PageServerLoad = () => {
+export const load: PageServerLoad = ({ cookies }) => {
+    // already logged in, straight to dashboard
+    const token = cookies.get('token')
+    if (token !== undefined) throw redirect(307, '/dash')
+
     return {
         form: superValidate(loginSchema)
     }

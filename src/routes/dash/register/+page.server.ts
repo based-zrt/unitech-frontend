@@ -6,7 +6,11 @@ import type { ApiError, RegisterRequest } from '$lib/server/apiTypes'
 import { useApi } from '$lib/server/api'
 import { isError } from '$lib/types'
 
-export const load: PageServerLoad = () => {
+export const load: PageServerLoad = ({ cookies }) => {
+    // already logged in, straight to dashboard
+    const token = cookies.get('token')
+    if (token !== undefined) throw redirect(307, '/dash')
+
     return {
         form: superValidate(registerSchema)
     }
