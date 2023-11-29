@@ -17,12 +17,12 @@
     <StorageUsage usedStorage={info.usedSpace} maxStorage={info.maxSpace} class="w-96 bg-slate-900" />
     <Searchbar />
     <Uploadbutton />
-    <div>
-        <span class="text-center align-middle">{info.username}</span>
+    <div class="mt-1">
         <Avatar.Root class="mx-auto">
-            <Avatar.Image src={defaultProfile} alt="@shadcn" />
-            <Avatar.Fallback>CN</Avatar.Fallback>
+            <Avatar.Image src={info.avatarUrl} alt={`@${info.username}`} />
+            <Avatar.Fallback>A</Avatar.Fallback>
         </Avatar.Root>
+        <span class="text-center align-middle">{info.username}</span>
     </div>
 </nav>
 

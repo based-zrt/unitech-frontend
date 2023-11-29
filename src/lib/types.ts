@@ -5,6 +5,7 @@ export interface ProfileInfo {
     role: string
     email: string
     uploadSecret: string
+    avatarUrl: string
     uploadCount: number
     usedSpace: number
     maxSpace: number
