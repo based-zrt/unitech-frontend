@@ -25,7 +25,7 @@
     <StorageUsage usedStorage={info.usedSpace} maxStorage={info.maxSpace} class="w-96 bg-slate-900" />
     <Searchbar />
     <Uploadbutton />
-    <a href={`http://api.unideb.tech/profile/sharexConfig?token=${getToken()}`} target="_blank">
+    <a href={`https://api.unideb.tech/profile/sharexConfig?token=${getToken()}`} target="_blank">
         <Button>
             ShareX
         </Button>
