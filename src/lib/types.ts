@@ -15,6 +15,7 @@ export interface UploadInfo {
     id: string
     user: string
     url: string
+    rawUrl: string
     size: number
     fileName: string
     uploadDate: number

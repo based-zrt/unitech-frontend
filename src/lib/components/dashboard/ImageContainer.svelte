@@ -5,11 +5,12 @@
     export let id: string
     export let user: string
     export let url: string
+    export let rawUrl: string
     export let size: number
     export let fileName: string
     export let uploadDate: number
 
-    $: imageStyle = `background-image: url(https://api.unideb.tech/view/${id}/raw);`
+    $: imageStyle = `background-image: url(${rawUrl});`
 </script>
 
 <Card.Root class="w-60 h-60">

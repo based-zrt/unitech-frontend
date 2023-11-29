@@ -48,7 +48,7 @@
     <Centered>
         <Card.Root>
             <Card.Header>
-                <img src={view.upload.url} alt={view.upload.fileName} />
+                <img src={view.upload.rawUrl} alt={view.upload.fileName} />
             </Card.Header>
             <Card.Description>
                 <div class="flex flex-row m-5">
@@ -60,7 +60,7 @@
                     <div class="flex flex-col text-left">
                         <p>{view.upload.user}</p>
                         <p>{view.upload.fileName}</p>
-                        <p>{Math.ceil(view.upload.size / 1024)} kb</p>
+                        <p>{Math.ceil(view.upload.size / 1024)} Kb</p>
                     </div>
                 </div>
             </Card.Description>

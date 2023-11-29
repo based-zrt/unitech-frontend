@@ -8,6 +8,7 @@
     export let id: string
     export let user: string
     export let url: string
+    export let rawUrl: string
     export let size: number
     export let fileName: string
     export let uploadDate: number
@@ -27,7 +28,7 @@
 <div class="cursor-pointer w-120 h-120 mb-10">
     {#if url}
         <!-- svelte-ignore a11y-img-redundant-alt -->
-        <img class="h-fit w-fit rounded-lg shadow-xl dark:shadow-gray-800" src={url} alt="Image" />
+        <img class="h-fit w-fit rounded-lg shadow-xl dark:shadow-gray-800" src={rawUrl} alt="Image" />
         <div class="h-100 mt-2 p-4 border-y-2">
             <span>Image name: {fileName}</span>
             <span>Image size: {`${size / 1024} kb`}</span>
