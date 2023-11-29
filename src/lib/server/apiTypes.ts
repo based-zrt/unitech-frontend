@@ -16,9 +16,14 @@ export interface RegisterRequest {
     inviteKey: string
 }
 
+export interface RegisterResponse {
+    status: string
+}
+
 export interface ApiError {
     message: string
-    details: unknown
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    details: Array<any>
     error: {
         statusCode: number
         statusPhrase: string
@@ -27,4 +32,4 @@ export interface ApiError {
 
 export type BackendRequest = LoginRequest | RegisterRequest | null
 
-export type BackendResponse = ProfileInfo | UploadInfo | ViewResponse | LoginResponse
+export type BackendResponse = ProfileInfo | UploadInfo | ViewResponse | LoginResponse | RegisterResponse
