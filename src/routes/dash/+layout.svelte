@@ -6,6 +6,7 @@
     import DashLogo from '$components/dashboard/DashLogo.svelte'
     import Searchbar from '$components/dashboard/Searchbar.svelte'
     import StorageUsage from '$components/dashboard/StorageUsage.svelte'
+    import { Button } from "$components/ui/button"
 
 
     export let data: PageData
@@ -17,6 +18,11 @@
     <StorageUsage usedStorage={info.usedSpace} maxStorage={info.maxSpace} class="w-96 bg-slate-900" />
     <Searchbar />
     <Uploadbutton />
+    <a href="http://api.unideb.tech/profile/sharexConfig" target="_blank">
+        <Button>
+            ShareX
+        </Button>
+    </a>
     <div class="mt-1">
         <Avatar.Root class="mx-auto">
             <Avatar.Image src={info.avatarUrl} alt={`@${info.username}`} />

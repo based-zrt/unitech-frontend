@@ -4,7 +4,7 @@
 </script>
   
 <Dialog.Root>
-    <Dialog.Trigger>
+    <Dialog.Trigger class="pl-20">
         <Button>
             Upload
         </Button>

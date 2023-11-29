@@ -18,7 +18,7 @@
     }
 </script>
 
-<div class="flex flex-col justify-center text-center">
+<div class="flex flex-col justify-center text-center p-10">
     <Progress value={usePercentage} max={100} class={classname} />
     <p class="mt-1">{usedString} / {maxString}</p>
 </div>
