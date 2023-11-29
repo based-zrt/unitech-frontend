@@ -1,6 +1,6 @@
 import type { PageServerLoad, Actions } from './$types'
 import { fail, redirect } from '@sveltejs/kit'
-import { superValidate } from 'sveltekit-superforms/server'
+import { setError, superValidate } from 'sveltekit-superforms/server'
 import { registerSchema } from '$lib/schema'
 
 interface ResponseType {
@@ -11,14 +11,10 @@ interface ResponseType {
         statusPhrase: string
     }
 }
-let responseMessage: string = ''
 
 export const load: PageServerLoad = () => {
     return {
-        form: superValidate(registerSchema),
-        data: {
-            errorMessage: responseMessage
-        }
+        form: superValidate(registerSchema)
     }
 }
 
@@ -30,7 +26,7 @@ export const actions: Actions = {
                 form
             })
         }
-        const response = await fetch('https://api.unideb.tech', {
+        const response = await fetch('https://api.unideb.tech/auth/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -39,14 +35,27 @@ export const actions: Actions = {
                 username: form.data.username,
                 email: form.data.email,
                 password: form.data.password,
-                invitekey: form.data.inviteToken
+                inviteKey: form.data.inviteToken
             })
         })
         if (response.status === 200) {
-            throw redirect(303, '/dash/login')
+            console.log(response)
+            throw redirect(303, '/dash/login/')
         } else {
+            console.log(response)
             const resp = (await response.json()) as ResponseType
-            responseMessage = resp.message
+            let responseError = resp.details
+            let responseMessage = resp.message
+            switch (true) {
+                case responseError[0] === 0:
+                    return setError(form, 'username', responseMessage)
+                case responseError[0] === 1:
+                    return setError(form, 'email', responseMessage)
+                case responseError[0] === 2:
+                    return setError(form, 'password', responseMessage)
+                case responseError[0] === 3:
+                    return setError(form, 'inviteToken', responseMessage)
+            }
         }
     }
 }
