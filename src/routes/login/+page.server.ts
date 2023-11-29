@@ -34,7 +34,7 @@ export const actions: Actions = {
         } else {
             const result = data as LoginResponse
             cookies.set('token', result.token, {})
-            throw redirect(303, '/dash/')
+            throw redirect(303, '/dash')
         }
     }
 }

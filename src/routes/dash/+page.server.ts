@@ -5,12 +5,12 @@ import type { PageServerLoad } from './$types'
 
 export const load: PageServerLoad = async ({ cookies }) => {
     const token = cookies.get('token')
-    if (token === undefined) throw redirect(307, '/dash/login')
+    if (token === undefined) throw redirect(307, '/login')
 
     const res = await useApi(token as string, '/profile/info', 'GET')
     if (isError(res)) {
         // invalid authentication
-        throw redirect(307, '/dash/login')
+        throw redirect(307, '/login')
     }
 
     const profileData = res as ProfileInfo

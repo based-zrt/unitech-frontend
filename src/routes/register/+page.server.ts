@@ -45,7 +45,7 @@ export const actions: Actions = {
                     return setError(form, 'inviteToken', error.message)
             }
         } else {
-            throw redirect(303, '/dash/login/')
+            throw redirect(303, '/login')
         }
     }
 }
